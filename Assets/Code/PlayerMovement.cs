@@ -44,4 +44,16 @@ public class PlayerMovement : MonoBehaviour
         verticalVelocity += gravity * Time.deltaTime;
         controller.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
     }
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Ground"))
+        {
+            PlatformFall pf = hit.gameObject.GetComponent<PlatformFall>();
+            if (pf != null)
+            {
+                pf.TriggerFall();
+            }
+        }
+    }
+
 }

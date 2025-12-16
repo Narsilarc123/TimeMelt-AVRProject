@@ -12,8 +12,8 @@ public class GameTimer : MonoBehaviour
 
     void Awake()
     {
-        // Setup singleton
         instance = this;
+        Debug.Log("GameTimer instance set");
     }
 
     void Start()

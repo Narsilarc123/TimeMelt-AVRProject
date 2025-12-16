@@ -8,8 +8,15 @@ public class TimeBlock : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (GameTimer.instance == null)
+            {
+                Debug.LogError("GameTimer.instance is NULL!");
+                return;
+            }
+
             GameTimer.instance.AddTime(timeBonus);
             Destroy(gameObject);
         }
     }
+
 }
